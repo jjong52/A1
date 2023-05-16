@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수정하기</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    </script>
+</head>
+<body>
+    <form action="/update/{{ member['_id'] }}" method="post">
+        <div id="profile">
+            <label>이름 :</label>
+            <input type="text" name="name_give" value="{{ member['name']}}">
+            <label>블로그 주소 :</label>
+            <input type="text" name="blog_give" value="{{ member['blog']}}">
+            <label>MBTI :</label>
+            <input type="text" name="mbti_give" value="{{ member['mbti']}}">
+        </div>
+        <button type="submit">수정</button>
+        <a href="/view/{{ member_id['_id'] }}">취소</a>
+    </form>
+</body>
+
+</html>
