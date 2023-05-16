@@ -16,16 +16,14 @@ def member_post():
     name_receive = request.form['name_give']
     blog_receive = request.form['blog_give']
     mbti_receive = request.form['mbti_give']
-    merit_receive = request.form['merit_give']
-    profile_receive = request.form['profile_give']
+    img_receive = request.form['img_give']
     desc_receive = request.form['desc_give']
 
     doc = {
         'name':name_receive,
         'blog':blog_receive,
         'mbti':mbti_receive,
-        'merit':merit_receive,
-        'profile':profile_receive,
+        'img':img_receive,
         'desc':desc_receive
     }
     db.members.insert_one(doc)

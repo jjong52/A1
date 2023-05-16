@@ -65,14 +65,14 @@
                 $('#profile').empty()
                 rows.forEach((a) => {
                     let name = a['name']
-                    let blog = a['blog']
-                    let mbti = a['mbti']
+                    let img = a['img']
                     let id = a['_id']
 
+                    console.log(img)
+
                     let temp_html = `<div class="profile">
+                                        <img src="${img}" alt="image" style="max-width: 200px; height: auto;">
                                         <div><a href="/view/${id}">이름 : ${name}</a></h5></div>
-                                        <div> 블로그 주소 : ${blog}</div>
-                                        <div> MBTI : ${mbti}</div>
                                     </div>`
                     $('#profile').append(temp_html)
                 })
@@ -82,11 +82,15 @@
             let name = $('#name').val()
             let blog = $('#blog').val()
             let mbti = $('#mbti').val()
+            let desc = $('#desc').val()
+            let img = $('img').val()
 
             let formData = new FormData();
             formData.append("name_give", name)
             formData.append("blog_give", blog)
             formData.append("mbti_give", mbti)
+            formData.append("desc_give", desc)
+            formData.append("img_give", img)
             
 
             fetch('/member', { method: "POST", body: formData }).then((res) => res.json()).then((data) => {
@@ -103,6 +107,10 @@
         <h1>일조</h1>
         <div class="order-info">
             <div class="input-group mb-3">
+                <label class="input-group-text" for="size">사진</label>
+                <input id="img" type="url" class="form-control" />
+            </div>
+            <div class="input-group mb-3">
                 <span class="input-group-text">이름</span>
                 <input id="name" type="text" class="form-control" />
             </div>
@@ -113,6 +121,10 @@
             <div class="input-group mb-3">
                 <label class="input-group-text" for="size">MBTI</label>
                 <input id="mbti" type="text" class="form-control" />
+            </div>
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="size">자기소개</label>
+                <input id="desc" type="text" class="form-control" />
             </div>
             <button onclick="save_order()" type="button" class="btn btn-warning mybtn">
                 저장하기

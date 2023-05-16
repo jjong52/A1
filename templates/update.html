@@ -12,15 +12,21 @@
 <body>
     <form action="/update/{{ member['_id'] }}" method="post">
         <div id="profile">
-            <label>이름 :</label>
-            <input type="text" name="name_give" value="{{ member['name']}}">
-            <label>블로그 주소 :</label>
-            <input type="text" name="blog_give" value="{{ member['blog']}}">
-            <label>MBTI :</label>
-            <input type="text" name="mbti_give" value="{{ member['mbti']}}">
+            <div>
+                <label>이름 :</label>
+                <input type="text" name="name_give" value="{{ member['name']}}">
+            </div>
+            <div>
+                <label>블로그 주소 :</label>
+                <input type="text" name="blog_give" value="{{ member['blog']}}">
+            </div>
+            <div>
+                <label>MBTI :</label>
+                <input type="text" name="mbti_give" value="{{ member['mbti']}}">
+            </div>
         </div>
         <button type="submit">수정</button>
-        <a href="/view/{{ member_id['_id'] }}">취소</a>
+        <a href="/view/{{ member_id['_id'] }}"><button>취소</button></a>
     </form>
 </body>
 
